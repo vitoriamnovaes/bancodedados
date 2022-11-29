@@ -138,7 +138,111 @@ CREATE TABLE series_has_genero (
 
 
 -- inserts
+INSERT INTO usuario(
+  idusuario,
+  nome_pessoa,
+  email,
+  data_cadastro,
+  senha,
+  data_nascimento
 
+  VALUES (12341484980, 'Vitória Novaes', 'vitorianovaes@gmail.com', 05/02/16, 14/08/04),
+         (55457899950, 'Sofia Nascimento', 'sofianascimento@gmail.com', 06/08/19, 22/06/04),
+         (10586348956, 'Ana Silva', 'anasilva@gmail.com', 02/02/22, 02/05/04),
+         (29705500916, 'Sabrina Hostins', 'sabrinahostins@gmail.com', 05/09/18, 06/07/05),
+         (11418350966, 'Milene Deschamps', 'milenedeschamps@gmail.com',28/02/18, 02/07/1999),
+         (52456817907, 'Diego Augusto', 'diegoaugusto@gmail.com', 17/03/17, 13/08/02),
+         (95099636900, 'Eloá Soares', 'eloasoares@gmail.com', 05/08/16, 02/08/04),
+         (07165506950, 'Amélia Batista', 'ameliabatista@gmail.com', 02/09/18, 14/09/05),
+         (67576429992, 'Amanda Zuchi', 'amandazuchi@gmail.com', 15/09/16, 09/05/04),
+         (49191171911, 'Bernardo Schimitt', 'bernardoschimitt@gmail.com', 19/05/16, 08/08/04)
+);
+
+INSERT INTO serie_usuario(
+  status_serie,
+  nota_usuario
+
+  VALUES ('assisti', 10),
+         ('quero assistir', 5),
+         ('assisti', 7),
+         ('quero assistir', 5),
+         ('assisti', 9),
+         ('assisti', 5),
+         ('quero assistir', 4),
+         ('assisti', 8),
+         ('quero assistir', 4),
+         ('assisti', 10)
+);
+
+INSERT INTO series(
+  idserie,
+  nome_serie,
+  descricao
+
+  VALUES (1, 'Gossip Girl', 'Favorita')
+         (8, 'Bridgerton', 'Favorita'),
+         (2, 'Outer Banks', 'Amei'),
+         (5, 'Stranger things', 'Muito boa'),
+         (6, 'Coisa mais linda', 'Muito boa'),
+         (3, 'Virgin River', 'Amei'),
+         (9, 'Maldivas', 'Muito boa') 
+         (4, 'Emily in Paris', 'Favorita'),
+         (10, 'The 100', ' Muito boa'),
+         (7, 'Dark', 'Não gostei')
+);
+
+INSERT INTO genero(
+  idgenero, 
+  nome_genero
+
+  VALUES (1, 'Romance'),
+         (7, 'Romance'),
+         (9, 'Ficção cientifica'),
+         (5, 'Terror'),
+         (4, 'Ação'),
+         (3, 'Aventura'),
+         (2, 'Drama') 
+         (6, 'Comédia'),
+         (10, 'Aventura'),
+         (8, 'terror')
+);
+
+INSERT INTO temporada_series(
+  idtemporada_series,
+  nr_episodios,
+  data_lancamento
+
+  VALUES (2, '40', 18/02/18),
+         (5, '55', 22/02/19),
+         (10, '60', 07/08/12),
+         (7, '102', 15/06/19),
+         (4, '106', 12/09/17),
+         (3, '18', 27/09/16),
+         (1, '40', 18/07/19), 
+         (6, '11', 18/02/08),
+         (9, '27', 17/09/20),
+         (8, '30', 14/02/17)
+
+
+)
+
+INSERT INTO ator(
+  idator,
+  nome_ator,
+  data_nascimento,
+  sexo
+
+  VALUES (8, 'Leighton Meester', 09/04/1986, 'Feminino'),
+         (6, 'Phoebe Dynevor', 17/04/1995, 'Feminino'), 
+         (1, 'Madelyn Cline', 21/12/1997, 'Feminino'),
+         (3, 'Millie Bobby Brown', 19/02/04, 'Feminino'),
+         (7, 'Maria Casadevall', 24/07/1987, 'Feminino'),
+         (2, 'Martin Henderson', 08/10/1974, 'Mascolino'),
+         (9, 'Bruna Marquezine', 04/08/1995, 'Feminino'),
+         (4, 'Lyli Colins', 18/03/1989, 'Feminino'),
+         (5, 'Bob Morley', 20/12/1984, 'Mascolino'),
+         (10, 'Louis Hofman', 03/06/1997, 'Mascolino')
+);
 -- updates
 
 
