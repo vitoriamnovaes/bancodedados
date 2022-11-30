@@ -7,14 +7,14 @@ USE maratona;
 -- -----------------------------------------------------
 -- Table mydb`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE 'usuario' (
+CREATE TABLE usuario (
   idusuario INT NOT NULL,
   nome_pessoa VARCHAR(45) NOT NULL,
   email VARCHAR(45) NOT NULL,
   data_cadastro INT NOT NULL,
   senha INT NOT NULL,
   data_nascimento DATE NOT NULL,
-  PRIMARY KEY (`idusuario`),
+  PRIMARY KEY (idusuario),
   
 
 
@@ -244,9 +244,68 @@ INSERT INTO ator(
          (10, 'Louis Hofman', 03/06/1997, 'Mascolino')
 );
 -- updates
+UPDATE usuario SET email = 'camilaandrade@gmail.com' WHERE id usuario LIKE 10586348956;
+UPDATE usuario SET email = 'anajulia@gmail.com' WHERE id usuario LIKE 49191171911;
+UPDATE usuario SET email = 'rayssa@gmail.com' WHERE id usuario LIKE 67576429992;
+UPDATE usuario SET email = 'larissaandrade@gmail.com' WHERE id usuario LIKE 95099636900;
+UPDATE usuario SET email = 'lorenzosouza@gmail.com' WHERE id usuario LIKE 11418350966;
 
+
+UPDATE series SET nome_serie = 'Lúcifer' WHERE idserie LIKE 1;
+UPDATE series SET nome_serie = 'PLL' WHERE idserie LIKE 2;
+UPDATE series SET nome_serie = 'Sou Luna' WHERE idserie LIKE 3;
+UPDATE series SET nome_serie = 'Violeta' WHERE idserie LIKE 5;
+UPDATE series SET nome_serie = 'Barbie' WHERE idserie LIKE 6;
+
+UPDATE genero SET nome_genero = 'Romance' WHERE idgenero LIKE 3;
+UPDATE genero SET nome_genero = 'Ação' WHERE idgenero LIKE 5;
+UPDATE genero SET nome_genero = 'Aventura' WHERE idgenero LIKE 2;
+UPDATE genero SET nome_genero = 'Aventura' WHERE idgenero LIKE 1;
+UPDATE genero SET nome_genero = 'Terror' WHERE idgenero LIKE 6;
+
+UPDATE temporada_serie SET nr_episodios = '45' WHERE idtemporada_series LIKE 2;
+UPDATE temporada_serie SET nr_episodios = '57' WHERE idtemporada_series LIKE 3;
+UPDATE temporada_serie SET nr_episodios = '25' WHERE idtemporada_series LIKE 7;
+UPDATE temporada_serie SET nr_episodios = '19' WHERE idtemporada_series LIKE 10;
+UPDATE temporada_serie SET nr_episodios = '60' WHERE idtemporada_series LIKE 1;
+
+UPDATE ator SET sexo = 'Mascolino' WHERE idator LIKE 8;
+UPDATE ator SET sexo = 'Feminino' WHERE idator LIKE 2;
+UPDATE ator SET sexo = 'Mascolino' WHERE idator LIKE 4;
+UPDATE ator SET sexo = 'Feminino' WHERE idator LIKE 5;
+UPDATE ator SET sexo = 'Mascolino' WHERE idator LIKE 1;
 
 -- deletes
+DELETE FROM usuario WHERE idusuario = 10586348956;
+DELETE FROM usuario WHERE idusuario = 49191171911;
+DELETE FROM usuario WHERE idusuario = 67576429992;
+DELETE FROM usuario WHERE idusuario = 95099636900;
+DELETE FROM usuario WHERE idusuario = 11418350966;
+
+DELETE FROM series WHERE idserie = 1;
+DELETE FROM series WHERE idserie = 2;
+DELETE FROM series WHERE idserie = 3;
+DELETE FROM series WHERE idserie = 5;
+DELETE FROM series WHERE idserie = 8;
+
+DELETE FROM genero WHERE idgenero = 2;
+DELETE FROM genero WHERE idgenero = 3;
+DELETE FROM genero WHERE idgenero = 7;
+DELETE FROM genero WHERE idgenero = 8;
+DELETE FROM genero WHERE idgenero = 9;
+
+DELETE FROM temporada_serie WHERE idtemporada_serie = 5;
+DELETE FROM temporada_serie WHERE idtemporada_serie = 2;
+DELETE FROM temporada_serie WHERE idtemporada_serie = 3;
+DELETE FROM temporada_serie WHERE idtemporada_serie = 6;
+DELETE FROM temporada_serie WHERE idtemporada_serie = 1;
+
+DELETE FROM ator WHERE idator = 8;
+DELETE FROM ator WHERE idator = 2;
+DELETE FROM ator WHERE idator = 3;
+DELETE FROM ator WHERE idator = 9;
+DELETE FROM ator WHERE idator = 7;
+
 
 -- selects
 SELECT * FROM usuario ORDER BY ASC;
@@ -258,4 +317,15 @@ SELECT * FROM temporada_serie ORDER BY ASC;
 SELECT * FROM elenco_serie ORDER BY ASC;
 SELECT * FROM ator ORDER BY ASC;
 
+SELECT * FROM usuario WHERE idusuario = 10586348956;
+SELECT * FROM series WHERE idserie = 2;
+SELECT * FROM genero WHERE idgenero = 5;
+SELECT * FROM temporada_serie WHERE idtemporada_serie = 7;
+SELECT * FROM ator WHERE idator = 3;
+
+SELECT usuario.idusuario, series.idserie FROM usuario RIGHT JOIN series ON usuario.idusuario * series.idseries;
+SELECT series.idseries, autor.idautor FROM series RIGHT JOIN autor ON series.idseries * autor.idautor;
+SELECT autor.idautor, temporada_serie.idtemporada_serie FROM autor ON autor.idautor * temporada_serie.idtemporada_serie;
+SELECT temporada_serie.idtemporada_serie, genero.idgenero FROM temporada_serie RIGHT JOIN genero ON temporada_serie.idtemporada_serie * genero.idgenero;
+SELECT genero.idgenero, series.idserie FROM genero RIGHT JOIN series ON genero.idgenero * series.idserie;
 DROP DATABASE maratona;
